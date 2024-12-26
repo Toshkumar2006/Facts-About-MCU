@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MCU Facts Explorer</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #1c1e26 0%, #31344e 100%);
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            max-width: 800px;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        h1 {
+            color: #fff;
+            margin-bottom: 2rem;
+        }
+
+        .fact-container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+
+        #factDisplay {
+            color: #fff;
+            font-size: 1.2rem;
+            line-height: 1.6;
+            min-height: 100px;
+            margin-bottom: 1.5rem;
+        }
+
+        button {
+            background: #4a90e2;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background 0.3s ease;
+        }
+
+        button:hover {
+            background: #357abd;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Amazing MCU Facts</h1>
+        <div class="fact-container">
+            <div id="factDisplay"></div>
+            <button id="nextFact">Next Fact</button>
+        </div>
+    </div>
+
+    <script>
+        const mcuFacts = {
+            "spaceFacts": [
+                {
+                    "id": 1,
+                    "fact": "Iron Man was the first film in the Marvel Cinematic Universe, released in 2008."
+                },
+                {
+                    "id": 2,
+                    "fact": "The character of Nick Fury was originally created in 1963, but Samuel L. Jackson's portrayal in the MCU popularized him."
+                },
+                {
+                    "id": 3,
+                    "fact": "The Avengers was the first superhero film to gross over $1 billion at the box office."
+                },
+                {
+                    "id": 4,
+                    "fact": "Chris Evans was not the first choice for Captain America; other actors were considered before him."
+                },
+                {
+                    "id": 5,
+                    "fact": "The character of Black Panther was first introduced in the comic book 'Fantastic Four' #52 in 1966."
+                },
+                {
+                    "id": 6,
+                    "fact": "Thor's hammer, Mjolnir, is made from a fictional metal called Uru."
+                },
+                {
+                    "id": 7,
+                    "fact": "The Hulk's character is portrayed by different actors in the MCU, including Edward Norton and Mark Ruffalo."
+                },
+                {
+                    "id": 8,
+                    "fact": "The Infinity Gauntlet was first seen in Thor (2011) but was a fake in that film."
+                },
+                {
+                    "id": 9,
+                    "fact": "Spider-Man: Homecoming is the first Spider-Man film to be produced by Marvel Studios."
+                },
+                {
+                    "id": 10,
+                    "fact": "The character of Doctor Strange was created by writer Stan Lee and artist Steve Ditko in 1963."
+                },
+                {
+                    "id": 11,
+                    "fact": "Guardians of the Galaxy was a risk for Marvel, as it featured lesser-known characters."
+                },
+                {
+                    "id": 12,
+                    "fact": "The character of Ant-Man was created in 1962 and has been a part of the Avengers in the comics."
+                },
+                {
+                    "id": 13,
+                    "fact": "Black Widow was the first female superhero to be introduced in the MCU."
+                },
+                {
+                    "id": 14,
+                    "fact": "The character of Vision was created in 1968 and is a combination of a synthetic body and the Mind Stone."
+                },
+                {
+                    "id": 15,
+                    "fact": "The MCU has its own timeline, which is different from the comic book timeline."
+                },
+                {
+                    "id": 16,
+                    "fact": "The character of Captain Marvel was introduced in the comics in 1968 and became a prominent superhero in the MCU."
+                },
+                {
+                    "id": 17,
+                    "fact": "The post-credit scenes in MCU films have become a signature element of the franchise."
+                },
+                {
+                    "id": 18,
+                    "fact": "The character of Loki is portrayed by Tom Hiddleston and has become a fan favorite."
+                },
+                {
+                    "id": 19,
+                    "fact": "The MCU has won numerous awards, including Academy Awards and Golden Globes."
+                },
+                {
+                    "id": 20,
+                    "fact": "The character of Thanos was first introduced in the post-credit scene of The Avengers (2012)."
+                }
+            ]
+        };
+
+        let currentFactIndex = 0;
+        const factDisplay = document.getElementById('factDisplay');
+        const nextFactButton = document.getElementById('nextFact');
+
+        // Display initial fact
+        displayFact(currentFactIndex);
+
+        // Add click event listener to button
+        nextFactButton.addEventListener('click', () => {
+            currentFactIndex = (currentFactIndex + 1) % mcuFacts.spaceFacts.length;
+            displayFact(currentFactIndex);
+        });
+
+        function displayFact(index) {
+            const fact = mcuFacts.spaceFacts[index];
+            factDisplay.innerHTML = `
+                <p><strong>Fact #${fact.id}:</strong></p>
+                <p>${fact.fact}</p>
+            `;
+        }
+    </script>
+</body>
+</html>
